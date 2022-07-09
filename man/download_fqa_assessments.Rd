@@ -20,7 +20,7 @@ A data frame with five columns:
   }
 }
 \description{
-Downloads a data frame of publically-available inventory assessments for a given FQA database from \href{universalfqa.org}{https://universalfqa.org/}.
+Downloads a data frame of publicly-available inventory assessments for a given FQA database from \href{universalfqa.org}{https://universalfqa.org/}.
 Databases should be specified by their \code{database_id} number, which can be obtained with the \code{\link{download_fqa_databases}} function.
 }
 \examples{

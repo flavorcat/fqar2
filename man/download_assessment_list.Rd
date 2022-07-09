@@ -19,7 +19,7 @@ download_assessment_list(database, ...)
 }}
 }
 \value{
-A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_fqa_list}} for a tidy summary.
+A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{assessment_list_glance}} for a tidy summary.
 }
 \description{
 Searches a specified FQA database for assessments matching given criteria, then downloads all the matches from \href{https://universalfqa.org/}{universalfqa.org}. Download speeds from that website may be slow, causing delays in the evaluation of this function.
@@ -29,7 +29,7 @@ Searches a specified FQA database for assessments matching given criteria, then 
 databases <- download_fqa_databases # Note database 1 is the original 1994 Chicago edition.
 chicago_assessments <- download_fqa_assessments(1) # lists all assessments in that database.
 somme_assessments <- download_assessment_list(1, site == "Somme Woods")
-somme_summary <- glance_fqq_list(somme_assessments) # function doesn't exist yet.
+somme_summary <- assessment_list_glance(somme_assessments)
 }
 
 }

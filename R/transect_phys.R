@@ -16,18 +16,18 @@
 
 #' @examples
 #' \dontrun{
-#' ## glance_phis can be used with a download function:
+#' ## transect_phys can be used with a download function:
 #'
-#' glance_phis(download_transect(6325))
+#' transect_phys(download_transect(6325))
 #'
-#' ## glance_phis can also be used with saved data from a download function:
+#' ## transect_phys can also be used with saved data from a download function:
 #'
 #' df <- download_transect(6325)
-#' glance_phis(df)
+#' transect_phys(df)
 #' }
 #' @export
 
-glance_phis <- function(data_set) {
+transect_phys <- function(data_set) {
 
   renamed <- data_set %>%
     rename("one" = 1,

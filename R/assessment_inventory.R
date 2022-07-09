@@ -19,22 +19,22 @@
 #'
 #' @examples
 #' \dontrun{
-#' ## assess_fqa can be used with a .csv file downloaded from the universal FQA website:
+#' ## assessment_inventory can be used with a .csv file downloaded from the universal FQA website:
 #'
-#' assess_fqa(open_dunes)
+#' assessment_inventory(open_dunes)
 #'
 #' ## or with a download function:
 #'
-#' assess_fqa(download_fqa(25002))
+#' assessment_inventory(download_assessment(25002))
 #'
-#' ## assess_fqa can also be used with saved data from a download function:
+#' ## assessment_inventory can also be used with saved data from a download function:
 #'
 #' df <- download_fqa(25002)
-#' assess_fqa(df)
+#' assessment_inventory(df)
 #' }
 #' @export
 
-assess_fqa <- function(data_set) {
+assessment_inventory <- function(data_set) {
 
   if (ncol(data_set) == 1) {
 

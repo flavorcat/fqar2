@@ -10,7 +10,7 @@ download_transect(transect_id)
 \item{transect_id}{A numeric identifier of the desired transect-level floristic quality assessment, as specified by \href{https://universalfqa.org/}{universalfqa.org}. ID numbers for specified databases can be viewed with the \code{\link{download_fqa_transects}} function.}
 }
 \value{
-An untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_transect}} for a tidy summary and \code{\link{assess_transect}} for raw species-level data.
+An untidy data frame in the original format of the Universal FQA website. Use \code{\link{transect_glance}} for a tidy summary, \code{\link{transect_phys}} for a physiognometric overview, and \code{\link{transect_inventory}} for raw species-level data.
 }
 \description{
 Downloads a specified transect-level floristic quality assessment from \href{https://universalfqa.org/}{universalfqa.org}. ID numbers for assessments in different databases can be found using \code{\link{download_fqa_assessments}}.
@@ -20,8 +20,9 @@ Downloads a specified transect-level floristic quality assessment from \href{htt
 databases <- download_fqa_databases # Note database 1 is the original 1994 Chicago edition.
 chicago_transects <- download_fqa_transects(1) # CBG Sand prairie swale fen A has id number 5932.
 cbg <- download_transect(5932)
-cbg_tidy <- glance_fqa(edison)
-cbg_species <- assess_fqa(edison)
+cbg_tidy <- transect_glance(edison)
+cbg_species <- transect_inventory(edison)
+cbg_phys <- transect_phys(edison)
 }
 
 }

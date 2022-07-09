@@ -61,22 +61,22 @@
 #' @importFrom rlang .data
 #'
 #' @examples \dontrun{
-#' ## glance_fqa can be used with a .csv file downloaded from the universal FQA website:
+#' ## assessment_glance can be used with a .csv file downloaded from the universal FQA website:
 #'
-#' glance_fqa(open_dunes)
+#' assessment_glance(open_dunes)
 #'
 #' ## or with a download function:
 #'
-#' glance_fqa(download_fqa(25002))
+#' assessment_glance(download_fqa(25002))
 #'
-#' ## glance_fqa can also be used with saved data from a download function:
+#' ## assessment_glance can also be used with saved data from a download function:
 #'
 #' df <- download_fqa(25002)
-#' glance_fqa(df)
+#' assessment_glance(df)
 #' }
 #'
 #' @export
-glance_fqa <- function(data_set) {
+assessment_glance <- function(data_set) {
 
   if (ncol(data_set) == 1) {
 

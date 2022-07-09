@@ -4,7 +4,7 @@
 #'
 #' @param assessment_id A numeric identifier of the desired floristic quality assessment, as specified by \href{https://universalfqa.org/}{universalfqa.org}. ID numbers for specified databases can be viewed with the \code{\link{download_fqa_assessments}} function.
 #'
-#' @return An untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_fqa}} for a tidy summary and \code{\link{assess_fqa}} for raw species-level data.
+#' @return An untidy data frame in the original format of the Universal FQA website. Use \code{\link{assessment_glance}} for a tidy summary and \code{\link{assessment_inventory}} for raw species-level data.
 #'
 #' @import jsonlite
 #'
@@ -51,7 +51,7 @@ download_assessment <- function(assessment_id){
 #'   \item practitioner (character)
 #' }
 #'
-#' @return A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_fqa_list}} for a tidy summary.
+#' @return A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{assessment_list_glance}} for a tidy summary.
 #'
 #' @import dplyr utils
 #'
@@ -60,7 +60,7 @@ download_assessment <- function(assessment_id){
 #' databases <- download_fqa_databases # Note database 1 is the original 1994 Chicago edition.
 #' chicago_assessments <- download_fqa_assessments(1) # lists all assessments in that database.
 #' somme_assessments <- download_assessment_list(1, site == "Somme Woods")
-#' somme_summary <- glance_fqq_list(somme_assessments) # function doesn't exist yet.
+#' somme_summary <- assessment_list_glance(somme_assessments)
 #' }
 #'
 #' @export
@@ -96,14 +96,15 @@ download_assessment_list <- function(database, ...){
 #'
 #' @param transect_id A numeric identifier of the desired transect-level floristic quality assessment, as specified by \href{https://universalfqa.org/}{universalfqa.org}. ID numbers for specified databases can be viewed with the \code{\link{download_fqa_transects}} function.
 #'
-#' @return An untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_transect}} for a tidy summary and \code{\link{assess_transect}} for raw species-level data.
+#' @return An untidy data frame in the original format of the Universal FQA website. Use \code{\link{transect_glance}} for a tidy summary, \code{\link{transect_phys}} for a physiognometric overview, and \code{\link{transect_inventory}} for raw species-level data.
 #'
 #' @examples \dontrun{
 #' databases <- download_fqa_databases # Note database 1 is the original 1994 Chicago edition.
 #' chicago_transects <- download_fqa_transects(1) # CBG Sand prairie swale fen A has id number 5932.
 #' cbg <- download_transect(5932)
-#' cbg_tidy <- glance_fqa(edison)
-#' cbg_species <- assess_fqa(edison)
+#' cbg_tidy <- transect_glance(edison)
+#' cbg_species <- transect_inventory(edison)
+#' cbg_phys <- transect_phys(edison)
 #' }
 #'
 #' @export
@@ -140,7 +141,7 @@ download_transect <- function(transect_id){
 #'   \item practitioner (character)
 #' }
 #'
-#' @return A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{glance_transect_list}} for a tidy summary.
+#' @return A list of data frames matching the given search criteria. Each is an untidy data frame in the original format of the Universal FQA website. Use \code{\link{transect_list_glance}} for a tidy summary.
 #'
 #' @examples \dontrun{
 #' databases <- download_fqa_databases()

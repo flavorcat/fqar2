@@ -62,18 +62,18 @@
 #' @importFrom rlang .data
 #'
 #' @examples \dontrun{
-#' ## glance_transect can be used with a download function:
+#' ## transect_glance can be used with a download function:
 #'
-#' glance_transect(download_transect(6325))
+#' transect_glance(download_transect(6325))
 #'
 #' ## glance_fqa can also be used with saved data from a download function:
 #'
 #' df <- download_transect(6325)
-#' glance_transect(df)
+#' transect_glance(df)
 #' }
 #'
 #' @export
-glance_transect <- function(data_set){
+transect_glance <- function(data_set){
 
     data_set[data_set == ""] <- NA
 

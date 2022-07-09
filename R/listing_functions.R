@@ -1,5 +1,3 @@
-# Need to check column names against UniversalFQA field names
-
 #' Obtain a data frame of all existing FQA databases
 #'
 #' Downloads a data frame of public floristic quality assessment databases from \href{https://universalfqa.org/}{universalfqa.org}.
@@ -34,7 +32,7 @@ download_fqa_databases <- function() {
 
 #' Available public FQA assessments
 #'
-#' Downloads a data frame of publically-available inventory assessments for a given FQA database from \href{universalfqa.org}{https://universalfqa.org/}.
+#' Downloads a data frame of publicly-available inventory assessments for a given FQA database from \href{universalfqa.org}{https://universalfqa.org/}.
 #' Databases should be specified by their \code{database_id} number, which can be obtained with the \code{\link{download_fqa_databases}} function.
 #'
 #' @param database_id A numeric identifier of the desired database, as specified by \href{https://universalfqa.org/}{universalfqa.org}. The id numbers can be viewed with the \code{\link{download_fqa_databases}} function.

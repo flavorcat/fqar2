@@ -60,20 +60,20 @@
 #' @import dplyr tidyr
 #' @examples
 #' \dontrun{
-#' ## glance_fqa_list can be used with the download_assessment_list() function:
+#' ## assessment_list_glance can be used with the download_assessment_list() function:
 #'
-#' glance_fqa_list(download_assessment_list(149, id %in% test_vector))
+#' assessment_list_glance(download_assessment_list(149, id %in% test_vector))
 #' # 149 is the database ID, see help file of download_assessment_list() for more information
 #'
-#' ## glance_fqa_list can also be used with saved data from the download function:
+#' ## assessment_list_glance can also be used with saved data from the download function:
 #'
 #' list <- (download_assessment_list(149, id %in% test_vector)
-#' glance_fqa_list(list)
+#' assessment_list_glance(list)
 #' }
 #' @export
-glance_fqa_list <- function(list){
+assessment_list_glance <- function(list){
 
-  applied <- lapply(list, glance_fqa)
+  applied <- lapply(list, assessment_glance)
 
   bind <- do.call(rbind, applied)
 
