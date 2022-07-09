@@ -1,0 +1,85 @@
+#' Obtain Study Information From Universal FQA Inventory as a Data Frame
+#'
+#' @param data_set a data frame downloaded from Universal FQA using download_fqa() or other similar function
+#' @return A data frame with 9 columns:
+#' \itemize{
+#'    \item Scientific Name (character)
+#'    \item Family (character)
+#'    \item Acronym (character)
+#'    \item Native? (character)
+#'    \item C (numeric)
+#'    \item W (numeric)
+#'    \item Physiognomy (character)
+#'    \item Duration (character)
+#'    \item Common Name (character)
+#' }
+#'
+#' @import dplyr tidyr
+#' @importFrom rlang .data
+#'
+#' @examples
+#' \dontrun{
+#' ## assess_fqa can be used with a .csv file downloaded from the universal FQA website:
+#'
+#' assess_fqa(open_dunes)
+#'
+#' ## or with a download function:
+#'
+#' assess_fqa(download_fqa(25002))
+#'
+#' ## assess_fqa can also be used with saved data from a download function:
+#'
+#' df <- download_fqa(25002)
+#' assess_fqa(df)
+#' }
+#' @export
+
+assess_fqa <- function(data_set) {
+
+  if (ncol(data_set) == 1) {
+
+    new <- rbind(names(data_set), data_set)
+
+    data <- separate(new,
+                     col = 1,
+                     sep = ",",
+                     into = c("V1", "V2", "V3", "V4",
+                              "V5", "V6", "V7", "V8", "V9"))
+
+    renamed <- data %>%
+      rename("Scientific Name" = 1,
+             "Family" = 2,
+             "Acronym" = 3,
+             "Native?" = 4,
+             "C" = 5,
+             "W" = 6,
+             "Physiognomy" = 7,
+             "Duration" = 8,
+             "Common Name" = 9)
+
+    new <- renamed %>%
+      filter(row_number() > which(.data$`Scientific Name` == "Scientific Name"))
+
+    new %>% mutate_at(c(5:6), as.numeric)
+
+  } else {
+
+    renamed <- data_set %>%
+      rename("Scientific Name" = 1,
+             "Family" = 2,
+             "Acronym" = 3,
+             "Native?" = 4,
+             "C" = 5,
+             "W" = 6,
+             "Physiognomy" = 7,
+             "Duration" = 8,
+             "Common Name" = 9)
+
+    new <- renamed %>%
+      filter(row_number() > which(.data$`Scientific Name` == "Scientific Name"))
+
+    new %>% mutate_at(c(5:6), as.numeric)
+
+  }
+
+}
