@@ -78,19 +78,19 @@ transect_glance <- function(data_set){
     data_set[data_set == ""] <- NA
 
     data_set[1, 2] <- data_set[1, 1]
-    data_set[1, 1] <- "Title:"
+    data_set[1, 1] <- "Title"
     data_set[2, 2] <- data_set[2, 1]
-    data_set[2, 1] <- "Date:"
+    data_set[2, 1] <- "Date"
     data_set[3, 2] <- data_set[3, 1]
-    data_set[3, 1] <- "Site Name:"
+    data_set[3, 1] <- "Site Name"
     data_set[4, 2] <- data_set[4, 1]
-    data_set[4, 1] <- "City:"
+    data_set[4, 1] <- "City"
     data_set[5, 2] <- data_set[5, 1]
-    data_set[5, 1] <- "County:"
+    data_set[5, 1] <- "County"
     data_set[6, 2] <- data_set[6, 1]
-    data_set[6, 1] <- "State:"
+    data_set[6, 1] <- "State"
     data_set[7, 2] <- data_set[7, 1]
-    data_set[7, 1] <- "Country:"
+    data_set[7, 1] <- "Country"
 
     renamed <- data_set |>
       rename("one" = 1,
@@ -120,7 +120,7 @@ transect_glance <- function(data_set){
 
 
     data <- pivoted |> mutate(across(c(23:25, 30:55), as.numeric),
-                              Date = as.POSIXct(`Date:`))  |>
+                              Date = as.POSIXct(.data$`Date`))  |>
       select(-.data$`Duration Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
     names(data) <- gsub(":", "", names(data))

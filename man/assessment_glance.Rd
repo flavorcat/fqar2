@@ -77,11 +77,11 @@ assessment_glance(open_dunes)
 
 ## or with a download function:
 
-assessment_glance(download_fqa(25002))
+assessment_glance(download_assessment(25002))
 
 ## assessment_glance can also be used with saved data from a download function:
 
-df <- download_fqa(25002)
+df <- download_assessment(25002)
 assessment_glance(df)
 }
 
