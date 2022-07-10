@@ -67,11 +67,11 @@
 #'
 #' ## or with a download function:
 #'
-#' assessment_glance(download_fqa(25002))
+#' assessment_glance(download_assessment(25002))
 #'
 #' ## assessment_glance can also be used with saved data from a download function:
 #'
-#' df <- download_fqa(25002)
+#' df <- download_assessment(25002)
 #' assessment_glance(df)
 #' }
 #'
@@ -125,7 +125,7 @@ assessment_glance <- function(data_set) {
     pivoted <- small |> pivot_wider(names_from = .data$`one`,
                           values_from = .data$`two`)
 
-    pivoted |> mutate_at(c(20:55), as.double) |>
+    pivoted |> mutate(across(20:55, as.double)) |>
       mutate_at(c(2), as.POSIXct) |>
       select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
@@ -168,8 +168,8 @@ assessment_glance <- function(data_set) {
     pivoted <- pivoted <- small |> pivot_wider(names_from = .data$`one`,
                           values_from = .data$`two`)
 
-    final <- pivoted |> mutate_at(c(20:55), as.double) |>
-      mutate_at(c(2), as.POSIXct) |>
+    final <- pivoted |> mutate(across(20:55, as.double),
+                               Date = as.POSIXct(.data$`Date:`)) |>
       select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
     names(final) <- gsub(":", "", names(final))
