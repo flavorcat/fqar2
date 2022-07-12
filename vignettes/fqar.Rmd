@@ -1,0 +1,33 @@
+---
+title: "fqar"
+author: "Andrew Gard"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fqar}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fqar)
+library(ggplot2)
+data(missouri)
+```
+
+## Draft vignette for the fqar package.
+
+```{r missouri plot}
+# ggplot(missouri, aes(x = log(`Native Species`), 
+#                     y = `Total Mean C`)) +
+#  geom_jitter()
+```
+
+
+
