@@ -162,7 +162,7 @@ download_transect_list <- function(database, ...){
                          width = length(transects_requested$id),
                          char = "=")
     for (i in seq_along(transects_requested$id)) {
-      results[[i]] <-  download_assessment(transects_requested$id[i])
+      results[[i]] <-  download_transect(transects_requested$id[i])
       utils::setTxtProgressBar(pb, i)
     }
     close(pb)
