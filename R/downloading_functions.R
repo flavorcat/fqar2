@@ -149,6 +149,8 @@ download_transect <- function(transect_id){
 #' chicago_transects <- download_fqa_transects(1)
 #' fcna <- download_transect_list(site == "FCNA")
 #' }
+#'
+#' @export
 download_transect_list <- function(database, ...){
   tryCatch(transects_summary <- download_fqa_transects(database),
            error = function(e){stop("invalid database", call. = FALSE)})
