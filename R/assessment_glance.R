@@ -125,8 +125,8 @@ assessment_glance <- function(data_set) {
     pivoted <- small |> pivot_wider(names_from = .data$`one`,
                           values_from = .data$`two`)
 
-    pivoted <- pivoted |> mutate(across(20:55, as.double)) |>
-      mutate_at(c(2), as.POSIXct) |>
+    pivoted <- pivoted |> mutate(across(20:55, as.double),
+                                 `Date:` = as.POSIXct(.data$`Date:`))
       select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
   } else {
