@@ -124,6 +124,7 @@ transect_glance <- function(data_set){
       select(-.data$`Duration Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
     names(data) <- gsub(":", "", names(data))
+    
     data
 
 }
