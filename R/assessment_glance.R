@@ -91,19 +91,19 @@ assessment_glance <- function(data_set) {
     data[data == ""] <- NA
 
     data[1, 2] <- data[1, 1]
-    data[1, 1] <- "Title:"
+    data[1, 1] <- "Title"
     data[2, 2] <- data[2, 1]
-    data[2, 1] <- "Date:"
+    data[2, 1] <- "Date"
     data[3, 2] <- data[3, 1]
-    data[3, 1] <- "Site Name:"
+    data[3, 1] <- "Site Name"
     data[4, 2] <- data[4, 1]
-    data[4, 1] <- "City:"
+    data[4, 1] <- "City"
     data[5, 2] <- data[5, 1]
-    data[5, 1] <- "County:"
+    data[5, 1] <- "County"
     data[6, 2] <- data[6, 1]
-    data[6, 1] <- "State:"
+    data[6, 1] <- "State"
     data[7, 2] <- data[7, 1]
-    data[7, 1] <- "Country:"
+    data[7, 1] <- "Country"
 
     renamed <- data |>
       rename("one" = 1,
@@ -125,7 +125,7 @@ assessment_glance <- function(data_set) {
     pivoted <- small |> pivot_wider(names_from = .data$`one`,
                           values_from = .data$`two`)
 
-    pivoted |> mutate(across(20:55, as.double)) |>
+    pivoted <- pivoted |> mutate(across(20:55, as.double)) |>
       mutate_at(c(2), as.POSIXct) |>
       select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
@@ -169,7 +169,7 @@ assessment_glance <- function(data_set) {
                           values_from = .data$`two`)
 
     final <- pivoted |> mutate(across(20:55, as.double),
-                               Date = as.POSIXct(.data$`Date:`)) |>
+                               `Date:` = as.POSIXct(.data$`Date:`)) |>
       select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
     names(final) <- gsub(":", "", names(final))
