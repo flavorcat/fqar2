@@ -19,6 +19,8 @@
 #' }
 #'
 #' @import dplyr tidyr
+#' @importFrom rlang .data
+#'
 #' @examples ## transect_inventory can be used with a download function:
 #'
 #' transect_inventory(download_transect(6325))
@@ -50,14 +52,15 @@ transect_inventory <- function(data_set) {
   selected <- renamed |> select(1:13)
 
   data <- selected |>
-    filter(row_number() > which(`one` == "Species Relative Importance Values:")) %>%
-    filter(row_number() < which(`one` == "Quadrat/Subplot Level Metrics:"))
+    filter(row_number() > which(.data$`one` == "Species Relative Importance Values:")) %>%
+    filter(row_number() < which(.data$`one` == "Quadrat/Subplot Level Metrics:"))
 
   dropped <- data |>  drop_na(c(1))
 
   names(dropped) <- lapply(dropped[1, ], as.character)
   new <- dropped[-1,]
 
-  new |> mutate_at(c(5:6), as.double) |> mutate_at(c(9:13), as.double)
+#  new |> mutate_at(c(5:6), as.double) |> mutate_at(c(9:13), as.double)
 
+  new <- new |> mutate(across(c(5:6, 9:13), as.double))
 }
