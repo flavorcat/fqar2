@@ -36,6 +36,8 @@
 
 assessment_inventory <- function(data_set) {
 
+  if (!is.data.frame(data_set)) {stop("data_set must be a dataframe obtained from the universalFQA.org website. Type ?download_assessment for help.", call. = FALSE)}
+
   if (ncol(data_set) == 1) {
 
     new <- rbind(names(data_set), data_set)
