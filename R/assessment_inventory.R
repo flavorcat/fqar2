@@ -1,6 +1,6 @@
 #' Obtain Study Information From Universal FQA Inventory as a Data Frame
 #'
-#' @param data_set a data frame downloaded from Universal FQA using download_fqa() or other similar function
+#' @param data_set a data frame downloaded from Universal FQA using download_assessment() or directly from universalfqa.org
 #' @return A data frame with 9 columns:
 #' \itemize{
 #'    \item Scientific Name (character)
