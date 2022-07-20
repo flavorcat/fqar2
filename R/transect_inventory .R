@@ -30,6 +30,8 @@
 #' @export
 
 transect_inventory <- function(data_set) {
+  
+  if (!is.data.frame(data_set)) {stop("data_set must be a dataframe obtained from the universalFQA.org website. Type ?download_assessment for help.", call. = FALSE)}
 
   renamed <- data_set %>%
     rename("one" = 1,
