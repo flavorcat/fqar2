@@ -82,5 +82,5 @@ survey_phys <- transect_phys(survey)
 More examples can be found in the [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd).
 
 ## Learn More 
-* Read the fqar [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd) to learn how to download and analyze FQA’s with fqar.
+* Read the *fqar* [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd) to learn how to download and analyze FQA’s with fqar.
 * View the help files of any function in *fqar* for more examples 
