@@ -1,6 +1,6 @@
 # fqar
 
-Floristic quality assessments (FQA's) are a method of assessing the quality of ecological communities and other natural areas. The *fqar* package provides tools to analyze and download FQA’s from www.universalfqa.org.
+Floristic quality assessments (FQA's) are a method of assessing the quality of ecological communities and other natural areas. The ${\tt fqar}$ package provides tools to analyze and download FQA’s from www.universalfqa.org.
 
 ## Installation
 
@@ -13,7 +13,7 @@ devtools::install_github("flavorcat/fqar2")
 
 ## Usage 
 
-The *fqar* package consists of three categories of functions: indexing, downloading, and tidying functions. *fqar* also includes two sample data sets.
+The ${\tt fqar}$ package consists of three categories of functions: indexing, downloading, and tidying functions. ${\tt fqar}$ also includes two sample data sets.
 
 ### Indexing functions: 
 
@@ -82,5 +82,5 @@ survey_phys <- transect_phys(survey)
 More examples can be found in the [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd).
 
 ## Learn More 
-* Read the *fqar* [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd) to learn how to download and analyze FQA’s with fqar.
+* Read the ${\tt fqar}$ [vignette](https://github.com/flavorcat/fqar2/blob/main/vignettes/fqar.Rmd) to learn how to download and analyze FQA’s with fqar.
 * View the help files of any function in *fqar* for more examples 
