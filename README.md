@@ -1,6 +1,6 @@
 # fqar
 
-*fqar* provides tools to analyze and download floristic quality assessments (FQA’s) from www.universalfqa.org. FQA’s are a method of assessing the quality of ecological communities and other natural areas. 
+Floristic quality assessments (FQA's) are a method of assessing the quality of ecological communities and other natural areas. The *fqar* package provides tools to analyze and download FQA’s from www.universalfqa.org.
 
 ## Installation
 
