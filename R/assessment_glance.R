@@ -1,6 +1,6 @@
 #' Obtain Overview Information From a Universal FQA Inventory as a Data Frame
 #'
-#' @param data_set a data frame downloaded from Universal FQA using download_fqa() or other similar function
+#' @param data_set a data frame downloaded from Universal FQA using download_assessment() or directly from universalfqa.org
 #' @return A data frame with 52 columns:
 #' \itemize{
 #'    \item Title (character)
@@ -80,6 +80,10 @@ assessment_glance <- function(data_set) {
 
   if (!is.data.frame(data_set)) {stop("data_set must be a dataframe obtained from the universalFQA.org website. Type ?download_assessment for help.", call. = FALSE)}
 
+  # when an fqa is downloaded from universalfqa.org to a computer as a .csv file and uploaded to R, the output is a single column data frame. This if-else statement fixes that issue.
+  # Each set should have a row "Physiognomy Metrics:" that is near the bottom of the set.
+  # one row might look like this -> Private/Public:,Public however, each set has different data.
+
   if (ncol(data_set) == 1) {
 
     new <- rbind(names(data_set), data_set)
@@ -125,11 +129,11 @@ assessment_glance <- function(data_set) {
       filter(row_number() < which(.data$`one` == "Species:"))
 
     pivoted <- small |> pivot_wider(names_from = .data$`one`,
-                          values_from = .data$`two`)
+                                    values_from = .data$`two`)
 
     pivoted <- pivoted |> mutate(across(20:55, as.double),
                                  `Date:` = as.POSIXct(.data$`Date:`))
-      select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
+    select(-.data$`Duration Metrics:`, -.data$`Physiognomy Metrics:`, -.data$`Conservatism-Based Metrics:`)
 
   } else {
 
@@ -168,7 +172,7 @@ assessment_glance <- function(data_set) {
       filter(row_number() < which(.data$`one` == "Species:"))
 
     pivoted <- pivoted <- small |> pivot_wider(names_from = .data$`one`,
-                          values_from = .data$`two`)
+                                               values_from = .data$`two`)
 
     final <- pivoted |> mutate(across(20:55, as.double),
                                `Date:` = as.POSIXct(.data$`Date:`)) |>
@@ -181,4 +185,3 @@ assessment_glance <- function(data_set) {
   final
 
 }
-
