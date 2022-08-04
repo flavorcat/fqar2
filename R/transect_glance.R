@@ -74,6 +74,8 @@
 #'
 #' @export
 transect_glance <- function(data_set){
+    
+    if (!is.data.frame(data_set)) {stop("data_set must be a dataframe obtained from the universalFQA.org website. Type ?download_transect for help.", call. = FALSE)}
 
     data_set[data_set == ""] <- NA
 
