@@ -1,6 +1,4 @@
-# fqar
-
-  # testpkg <img src="man/figures/logo.png" align="right" height="138" />
+# fqar <img src="man/figures/logo.png" align="right" height="138" />
 
 Floristic quality assessments (FQA's) are a method of assessing the quality of ecological communities and other natural areas. The ${\tt fqar}$ package provides tools to analyze and download FQA’s from www.universalfqa.org.
 
