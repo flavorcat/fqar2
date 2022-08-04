@@ -77,7 +77,6 @@
 #'
 #' @export
 assessment_glance <- function(data_set) {
-<<<<<<< HEAD
 
   if (!is.data.frame(data_set)) {stop("data_set must be a dataframe obtained from the universalFQA.org website. Type ?download_assessment for help.", call. = FALSE)}
 
@@ -85,12 +84,6 @@ assessment_glance <- function(data_set) {
   # Each set should have a row "Physiognomy Metrics:" that is near the bottom of the set.
   # one row might look like this -> Private/Public:,Public however, each set has different data.
 
-=======
-  
-  # when an fqa is downloaded from universalfqa.org to a computer as a .csv file and uploaded to R, the output is a single column data frame. This if-else statement fixes that issue. 
-  # Each set should have a row "Physiognomy Metrics:" that is near the bottom of the set. 
-  # one row might look like this -> Private/Public:,Public however, each set has different data. 
->>>>>>> eb3bd6a09e1a632f9c58cf9b02b9fcfd31b7eecc
   if (ncol(data_set) == 1) {
 
     new <- rbind(names(data_set), data_set)
